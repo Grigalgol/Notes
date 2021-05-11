@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Notes</string>
+    <string name="addNewNote">Добавить заметку</string>
+    <string name="hint_title">Заголовок заметки</string>
+    <string name="hint_description">Описание заметки</string>
+    <string name="priority1">1</string>
+    <string name="priority2">2</string>
+    <string name="priority3">3</string>
+    <string-array name="daysOfWeek">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
 </resources>
