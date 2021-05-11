@@ -1,14 +1,20 @@
 package com.sumin.notes;
 
 import android.content.Intent;
+import android.media.MediaRouter;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static android.system.Os.remove;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,9 +35,29 @@ public class MainActivity extends AppCompatActivity {
             notes.add(new Note("Баскетбол", "Игра со школьной командой", "Вторник", 3));
             notes.add(new Note("Магазин", "Купить новые джинсы", "Понедельник", 3));
         }
-            NotesAdapter adapter = new NotesAdapter(notes);
+            final NotesAdapter adapter = new NotesAdapter(notes);
             recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
             recyclerViewNotes.setAdapter(adapter);
+            adapter.setOnNoteClickListener(new NotesAdapter.OnNoteClickListener() {
+                @Override
+                public void onNoteClick(int position) {
+                    notes.remove(position);
+                    adapter.notifyDataSetChanged();
+                }
+            });
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+                notes.remove(viewHolder.getAdapterPosition());
+                adapter.notifyDataSetChanged();
+            }
+        });
+        itemTouchHelper.attachToRecyclerView(recyclerViewNotes);
 
     }
 
