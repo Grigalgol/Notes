@@ -23,9 +23,12 @@
         android:id="@+id/buttonAddNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:clickable="true"
-        android:onClick="androidAddNote"
+        android:onClick="onClickAddNote"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/plus" />
+
 </android.support.constraint.ConstraintLayout>

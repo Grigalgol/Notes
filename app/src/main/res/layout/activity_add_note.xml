@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNewNoteActivity">
+    tools:context=".AddNoteActivity">
 
     <EditText
-        android:id="@+id/editTextTextTitle"
+        android:id="@+id/editTextTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/hint_title"
@@ -18,30 +21,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextDescription"
+        android:id="@+id/editTextDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_description"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:hint="@string/hint_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 
     <Spinner
         android:id="@+id/spinnerDaysOfWeek"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:entries="@array/daysOfWeek"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/days_of_week"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescription" />
 
     <RadioGroup
         android:id="@+id/radioGroupPriority"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,39 +61,41 @@
         <RadioButton
             android:id="@+id/radioButton1"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@android:color/holo_red_light"
-            android:text="@string/priority1" />
+            android:text="@string/priority_1" />
 
         <RadioButton
             android:id="@+id/radioButton2"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@android:color/holo_orange_light"
-            android:text="@string/priority2" />
+            android:text="@string/priority_2" />
 
         <RadioButton
             android:id="@+id/radioButton3"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
             android:background="@android:color/holo_green_light"
-            android:text="@string/priority3"
-            android:checked="true"/>
+            android:text="@string/priority_3" />
     </RadioGroup>
 
     <Button
         android:id="@+id/buttonSaveNote"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_purple"
-        android:text="@string/addNewNote"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/button_save_note"
+        android:textColor="@android:color/background_light"
         android:onClick="onClickSaveNote"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupPriority" />
 </android.support.constraint.ConstraintLayout>
